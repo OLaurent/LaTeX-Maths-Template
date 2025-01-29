@@ -1,8 +1,280 @@
-\documentclass{article}
+\documentclass[a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{ProfLycee}
+\useproflyclib{ecritures}
 \usepackage{math-vh}
 
-%\usepackage[thmmarks]{ntheorem}
+% *** Réglage des headers ***
+\fancyhead[L]{TMATHS4 --- Lycée Victor Hugo}
+\fancyhead[R]{O. Laurent --- Année 2024--2025}
+% *** Réglage des headers ***
+
 \begin{document}
 
-tadaaaaaaaaaaaaaa
+\begin{center}
+  {\scshape\LARGE Chapitre 9 --- Fonction logarithme népérien\par}
+\end{center}
+ 
+\begin{activite}{}{} 
+On considère la fonction exponentielle définie par $f(x)=e^x$.
+
+\begin{enumerate} 
+  \item Justifier que l'équation $f(x)=2$ admet une unique solution $\alpha$ dans l'intervalle $[0;10]$. Donner une valeur approchée de $k$ à $10^{-1}$ près.
+  \item Soit $k$ un nombre réel. Conjecturer le nombre de solutions de l'équation $e^x=k$ en fonction de $k$.
+  \item Résoudre $e^x=1$.
+\end{enumerate}
+\end{activite}
+
+\begin{activite}{}{}
+On considère maintenant la représentation graphique de la fonction exponentielle, donnée ci-dessous:
+\begin{center}
+  \begin{tikzpicture}[x=1cm,y=1cm,%unités
+  xmin=-3,xmax=6,xgrille=1,xgrilles=1, %axe Ox
+  ymin=-3,ymax=6,ygrille=1,ygrilles=1] %axe Oy
+      \GrilleTikz
+      \AxexTikz[Police=\small]{-3,-2,-1,1,2,3,4,5,6}
+      \AxeyTikz[Police=\small]{-2,-1,1,2,...,6}
+      \AxesTikz
+      \CourbeTikz[very thick,blue,samples=250]{(exp(\x)}{-3:1.8}
+      \node[blue] at (2.5,5.5) {$\mathcal{C}_f$};
+  \end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+  \item Tracer sur le graphique la droite $(d)$ d'équation $y=x$, puis tracer la courbe symétrique de $\mathcal{C}_f$ par rapport à $(d)$.
+  \item On note $ln$ la fonction appelée "Logarithme népérien" correspondant à la représentation graphique obtenue. Tracer cette fonction à la calculatrice.
+  \item Déterminer graphiquement l'ensemble de définition de cette fonction.
+  \vspace{2cm}
+  \item Déterminer graphiquement le sens de variation de la fonction $ln$.
+  \vspace{2.5cm}
+  \item Déterminer graphiquement le signe de la fonction $ln$.
+  \vspace{2.5cm}
+\end{enumerate}
+\end{activite}
+
+\pagebreak
+\section{Fonction logarithme népérien}
+
+\begin{definition}{}{}
+\begin{itemize}[label=\textbullet]
+  \item Pour tout réel $a>0$ l'équation $e^x=a$, d'inconnue $x$, admet une unique solution dans $\R$.
+
+  Cette solution se note $x=ln(a)$ et s'appelle le logarithme népérien de $a$.
+
+  \item La fonction qui, à tout réel $a>0$, associe le réel $ln(a)$ s'appelle la \textbf{fonction logarithme népérien}.
+
+  C'est la \textbf{fonction réciproque} de la fonction exponentielle. Elle est définie sur $]0;+\infty[$.
+\end{itemize}
+\end{definition}
+
+\begin{propriete}{}{}
+  Dans un repère orthonormé, les courbes représentatives des fonctions exponentielle et le logarithme népérien 
+  sont symétriques par rapport à la droite d'équation $y=x$.
+
+  \begin{center}
+    \begin{tikzpicture}[x=1cm,y=1cm,%unités
+    xmin=-3,xmax=6,xgrille=1,xgrilles=1, %axe Ox
+    ymin=-3,ymax=6,ygrille=1,ygrilles=1] %axe Oy
+        \GrilleTikz
+        \AxexTikz[Police=\small]{-3,-2,-1,1,2,3,4,5,6}
+        \AxeyTikz[Police=\small]{-2,-1,1,2,...,6}
+        \AxesTikz
+        \CourbeTikz[very thick,blue,samples=250]{(exp(\x)}{-3:1.8}
+        \CourbeTikz[very thick,red,samples=250]{(ln(\x)}{0.05:6}
+        \CourbeTikz[very thick,ForestGreen,samples=250]{\x}{-3:6}
+        \node[blue] at (2.5,5.5) {$y=e^x$};
+        \node[red] at (5.5,2.5) {$y=ln(x)$};
+        \node[ForestGreen, below] at (5.5,4.9) {$y=x$};
+    \end{tikzpicture}
+  \end{center}
+
+  
+\end{propriete}
+
+\begin{propriete}{}{}
+\begin{itemize}[label=\textbullet]
+  \item Pour tout réel $b>0$ et pour tout réel $a$, $e^a=b \iff a=ln(b)$.
+  \item $ln(1)=0$ et $ln(e)=1$.
+  \item Pour tout réel $a>0$, $e^{ln(a)}=a$
+  \item Pour tout réel $a$, $ln(e^a)=a$.
+  \item Pour tous réels $a$ et $b$ positifs, $a=b \iff ln(a)=ln(b)$
+  \item Pour tous réels $a$ et $b$ positifs, $a<b \iff ln(a)<ln(b)$. 
+\end{itemize}
+\end{propriete}
+
+\begin{methode}{Résoudre une équation ou inéquation avec logarithme}{}
+Résoudre sur $]0;+\infty[$ les équations ou inéquations suivantes:
+
+\begin{tabular}{c|c}
+  \begin{minipage}{8cm}
+    \begin{center}
+      
+      $3ln(x)+2=11$
+      \vspace{4cm}
+    \end{center}
+  \end{minipage}&
+  \begin{minipage}{8cm}
+    \begin{center}
+      
+  $ln(x)<ln(2)$
+      \vspace{4cm}
+    \end{center}
+  \end{minipage}
+\end{tabular}
+\end{methode}
+
+  
+\begin{exercices}{}{}
+  32--33 p.244, 34--37 p.245, 40--41 p.245
+  \end{exercices}
+
+
+\begin{methode}{Résoudre une équation ou inéquation avec logarithme - Cas général}{}
+  Résoudre sur les équations ou inéquations suivantes:
+  
+  \begin{tabular}{c|c}
+    \begin{minipage}{8cm}
+      \begin{center}
+        
+        $ln(5x+1)=ln(x)$
+        \vspace{10cm}
+      \end{center}
+    \end{minipage}&
+    \begin{minipage}{8cm}
+      \begin{center}
+        
+    $ln(4x^2-x)\leqslant ln(3x)$
+        \vspace{10cm}
+      \end{center}
+    \end{minipage}
+  \end{tabular}
+  \end{methode}
+
+\begin{exercices}{}{}
+57--74 p.246
+\end{exercices}
+
+\pagebreak
+
+\section{Relation fonctionnelle et propriétés algébriques}
+\begin{theoreme}{}{}
+  Pour tous réels $a$ et $b$ strictement positifs, $ln(a\times b)=ln(a)+ln(b)$.
+\end{theoreme}
+\begin{example}{}{}
+
+\begin{itemize}[label=\textbullet]
+  \item $ln(35)=ln(7\times5)=ln(7)+ln(5)$
+  \item $ln(\dfrac{1}{5})+ln(10)=ln(\dfrac{1}{5}÷\times 10 )=ln(2)$
+\end{itemize}
+\end{example}
+
+
+\begin{propriete}{}{}
+\begin{itemize}[label=\textbullet]
+  \item Pour tous entier $n$ et $a$ réel strictement positif, $ln(a^n)=n\times ln(a)$.
+  \item Pour tout réel $b$ strictement positif, $ln\left(\dfrac{1}{b}\right)=-ln(b)$.
+  \item Pour tous réels $a$ et $b$ strictement positifs, $ln\left(\dfrac{a}{b}\right)=ln(a)-ln(b)$.
+  \item Pour tous réels $a$ strictement positif, $ln\left(\sqrt{a}\right)=\dfrac{1}{2}ln(a)$. 
+\end{itemize}
+\end{propriete}
+
+\begin{methode}{Résoudre une équation en utilisant les relations fonctionnelles}{}
+  Résoudre l'équation  $ln(x-4)+ln(x-2)=ln(3)$.
+
+  \vspace{4cm}
+  
+
+  \end{methode}
+
+\begin{exercices}{}{}
+43--48 p.245, 95 p.248, 96--111 p.249
+\end{exercices}
+\begin{methode}{Résoudre une équation avec inconnue en exposant}{}
+  Résoudre l'équation  $5^n \leqslant 10~000$.
+
+  \vspace{4cm}
+  
+
+  \end{methode}
+
+\begin{exercices}{}{}
+116-117 p.249
+\end{exercices}
+
+
+\pagebreak
+\section{Dérivabilité et limites de la fonction $ln$}
+
+\subsection{Dérivabilité}
+
+\begin{propriete}{}{}
+
+\begin{itemize}[label=\textbullet]
+  \item 
+  La fonction logarithme népérien est continue et dérivable sur $]0;+\infty[$ et pour tout $x>0$:
+  $$ln'(x)=\dfrac{1}{x}$$
+  \item Soit $u$ une fonction dérivable sur un intervalle $I$ telle que, pour tout $x\in I$, $u(x)>0$. Alors la fonction $ln \circ u$ est dérivable sur 
+  $I$ et $(ln \circ u)'=\dfrac{u'}{u}$.
+\end{itemize}
+\end{propriete}
+
+\begin{demonstrationp}{}{}
+  \vspace{8cm}
+\end{demonstrationp}
+
+\begin{example}{}{}
+Soit $f$ la fonction définie par $f(x)=ln(x^2+5)$, qui est de la forme $ln(u(x))$ avec $u(x)=x^2+5$.
+
+On a alors $f'(x)=\dfrac{2x}{x^2+5}$.
+\end{example}
+
+\begin{exercices}{}{}
+27--28 p.244
+\end{exercices}
+
+
+\begin{methode}{Calculer une fonction dérivée avec logarithme}{}
+Soit $f$ la fonction définie sur $\R$ par $f(x)=ln(x^4-x^2+1)$. Calculer $f'(x)$.
+
+\vspace{6cm}
+\end{methode}
+
+\begin{exercices}{}{}
+75--88 p.247, 89--94 p.248
+\end{exercices}
+
+\pagebreak
+\subsection{Limites}
+\begin{propriete}{}{}
+
+  \begin{itemize}[label=\textbullet]
+    \item  $\lim\limits_{x \to 0^+} ln(x)=-\infty$
+    \item $\lim\limits_{x \to +\infty} ln(x)=+\infty$
+  \end{itemize}
+\end{propriete}
+\begin{propriete}{Croissances comparées}{}
+  Pour tout entier $n\geqslant 1$:
+  \begin{itemize}[label=\textbullet]
+    \item  $\lim\limits_{x \to 0^+} x^n ln(x)=0$
+    \item $\lim\limits_{x \to +\infty} \dfrac{ln(x)}x^n{}=0$
+  \end{itemize}
+\end{propriete}
+
+\begin{demonstrationp}{ $\lim\limits_{x \to 0^+} x ln(x)=0$}{}
+  \vspace{10cm}
+  
+\end{demonstrationp}
+
+\begin{exercices}{}{}
+50--56 p.245, 122--128 p.250, 29--139 p.251
+\end{exercices}
+
+
+
+
+
+  
+
 \end{document}
