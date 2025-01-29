@@ -25,7 +25,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bash -i ./scripts/initialize-dependencies.sh",
+	"postCreateCommand": "bash -i ./scripts/initialize-dependencies.sh"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
