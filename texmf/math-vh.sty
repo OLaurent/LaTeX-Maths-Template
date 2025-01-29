@@ -1,0 +1,478 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-vh}[2023/06/21 version 1.0]
+
+\RequirePackage[a4paper,left=1cm,right=1cm, bottom=1.5cm,top=1.5cm]{geometry}
+%\usepackage{ProfLycee}
+
+\RequirePackage[thmmarks,amsmath]{ntheorem}  %THEOREM DEFINITION
+\usepackage{framed}  %LEFTFRAME
+\RequirePackage{tcolorbox} % Environments
+\RequirePackage{varwidth}
+\RequirePackage{tkz-tab}
+\RequirePackage{hhline}
+\RequirePackage{enumitem}
+\RequirePackage{qrcode}
+
+\RequirePackage{csquotes}
+
+\tcbuselibrary{theorems}
+\usetikzlibrary{shapes.geometric,shapes.misc,arrows,backgrounds,calc,patterns}
+\usetikzlibrary{angles,quotes}
+\usetikzlibrary{intersections}
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+	%default radius will be 1pt.
+	cross/.default={1pt}}
+
+
+
+% *** Réglage des headers ***
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\renewcommand\headrulewidth{1pt}
+\renewcommand\footrulewidth{1pt}
+\fancyfoot[C]{\textbf{Page \thepage/\pageref{LastPage}}}
+
+\setlength{\headheight}{12.09006pt}
+\addtolength{\topmargin}{-0.09006pt}
+% *** Réglage des headers ***
+
+\newcommand\coord[2]{\begin{pmatrix}
+	#1 \\
+	#2
+\end{pmatrix}}
+
+\newcommand{\findemo}{\hfill\rule{1ex}{1ex}}
+
+
+
+\renewcommand{\Re}{\mathfrak{Re}}
+\renewcommand{\Im}{\mathfrak{Im}}
+
+
+\definecolor{block-gray}{gray}{0.95}
+\definecolor{Red}{RGB}{255,0,0}
+\definecolor{Blue}{RGB}{0,0,255}
+\definecolor{Plum}{rgb}{0.56,0.27,0.52}
+\definecolor{ForestGreen}{RGB}{34,139,34}
+
+\makeatletter
+\tcbset{
+  commontheoremstyle/.style={
+    enhanced,
+    frame empty,
+    interior empty,
+    fonttitle=\bfseries,
+    attach boxed title to top left={yshift=-2mm},
+    boxed title style={boxrule=0.4pt},
+    varwidth boxed title
+  },
+  savoirfairestyle/.style={commontheoremstyle,
+    colframe=Plum!50!white,
+    coltitle=Plum!50!black,
+    colbacktitle=Plum!15!white,
+    borderline={0.5mm}{0mm}{Plum!30!white},
+    borderline={0.5mm}{0mm}{Plum!50!white,dashed}
+  },
+  definitionstyle/.style={commontheoremstyle,  
+    colframe=ForestGreen!50!white,
+    coltitle=ForestGreen!50!black,
+    colbacktitle=ForestGreen!15!white,
+    borderline={0.5mm}{0mm}{ForestGreen!30!white},
+    borderline={0.5mm}{0mm}{ForestGreen!50!white,dashed}
+  },
+  proprietestyle/.style={commontheoremstyle,  
+    colframe=Red!50!white,
+    coltitle=Red!50!black,
+    colbacktitle=Red!15!white,
+    borderline={0.5mm}{0mm}{Red!30!white},
+    borderline={0.5mm}{0mm}{Red!50!white,dashed}
+  },
+  theoremestyle/.style={commontheoremstyle,  
+    colframe=Red!50!white,
+    coltitle=Red!50!black,
+    colbacktitle=Red!15!white,
+    borderline={0.5mm}{0mm}{Red!30!white},
+    borderline={0.5mm}{0mm}{Red!50!white,dashed}
+  },
+  demonstrationprogtyle/.style={commontheoremstyle,  
+    colframe=Plum!50!white,
+    coltitle=Plum!50!black,
+    colbacktitle=Plum!15!white,
+    borderline={0.5mm}{0mm}{Plum!30!white},
+    borderline={0.5mm}{0mm}{Plum!50!white,dashed}
+  },
+  activitestyle/.style={commontheoremstyle,
+    colframe=Blue!50!white,
+    coltitle=Blue!50!black,
+    colbacktitle=Blue!15!white,
+    borderline={0.5mm}{0mm}{Blue!30!white},
+    borderline={0.5mm}{0mm}{Blue!50!white,dashed}
+  },
+  examplestyle/.style={
+	colback=white!0,
+	grow to right by=0mm,
+	grow to left by=0mm, 
+	boxrule=0pt,
+	boxsep=0pt,
+	breakable,
+	enhanced jigsaw,
+    borderline west={0.5mm}{0mm}{black!30!white,decoration={zigzag,amplitude=0.5mm},decorate},
+    borderline west={0.5mm}{0mm}{black!50!white,decoration={zigzag,amplitude=0.5mm},decorate, dashed},
+	colbacktitle={white!0},
+	coltitle={black},
+	fonttitle={\bfseries},
+	%attach title to upper={},
+  },
+  exerciceinterrostyle/.style={
+	colback=white!0,
+	grow to right by=0mm,
+	grow to left by=0mm, 
+	boxrule=0pt,
+	boxsep=0pt,
+	breakable,
+	enhanced jigsaw,
+   % borderline west={0.5mm}{0mm}{black!30!white,decoration={zigzag,amplitude=0.5mm}},
+   % borderline west={0.5mm}{0mm}{black!50!white,decoration={zigzag,amplitude=0.5mm}, dashed},
+	colbacktitle={white!0},
+	coltitle={black},
+	fonttitle={\bfseries},
+	separator sign={\ $\blacktriangleright$}
+	%attach title to upper={},
+  },
+  demonstrationtyle/.style={
+	colback=white!0,
+	grow to right by=0mm,
+	grow to left by=0mm, 
+	boxrule=0pt,
+	boxsep=0pt,
+	breakable,
+	enhanced jigsaw,
+    borderline west={0.5mm}{0mm}{black!30!white,decoration={coil,aspect=0},decorate},
+    borderline west={0.5mm}{0mm}{black!50!white,decoration={coil,aspect=0},decorate, dashed},
+	colbacktitle={white!0},
+	coltitle={black},
+	fonttitle={\bfseries},
+	%attach title to upper={},
+  }
+}
+
+	\newtcbtheorem[]{definition}{Définition}
+	{definitionstyle}{de}
+	\newtcbtheorem[]{savoirfaire}{Savoir-faire}
+	{savoirfairestyle}{de}
+	\newtcbtheorem[]{propriete}{Propriété}
+	{proprietestyle}{pr}
+	\newtcbtheorem[]{lemme}{Lemme}
+	{proprietestyle}{le}
+	\newtcbtheorem[]{theoreme}{Théorème}
+	{theoremestyle}{th}
+	\newtcbtheorem[]{corollaire}{Corollaire}
+	{theoremestyle}{co}
+	\newtcbtheorem[]{example}{Exemple}
+	{examplestyle}{ex}
+	\newtcbtheorem[]{notation}{Notation}
+	{activitestyle}{nt}
+	\newtcbtheorem[]{exerciceinterro}{Exercice}
+	{exerciceinterrostyle}{ex}
+	\newtcbtheorem[]{demonstration}{Démonstration}
+	{demonstrationtyle}{dm}
+	\newtcbtheorem[]{demonstrationp}{Démonstration au programme}
+	{demonstrationprogtyle}{dmp}
+	\newtcbtheorem[]{activite}{Activité}
+	{activitestyle}{ac}
+	\newtcbtheorem[]{corrigeactivite}{Corrigé de l'activité}
+	{activitestyle}{cac}
+	\newtcbtheorem[]{methode}{Méthode}
+	{activitestyle}{met}
+	\newtcbtheorem[]{docressource}{Document}
+	{activitestyle}{met}
+
+\makeatother
+
+
+
+
+
+
+
+% Environnements
+\newenvironment{exercices}[1][Exercices :]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+%\newenvironment{exercice}[1][Exercice :]{\begin{trivlist}
+%		\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{examples}[1][Exemples :]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remarque :]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{vocabulaire}[1][Vocabulaire :]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newenvironment{interpretation}[1][Interprétation :]{\begin{trivlist}
+		\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+%\newenvironment{definition}[1][Définition %:]{\begin{leftbar}\begin{trivlist}
+%			\item[\hskip \labelsep {\bfseries %#1}]}{\end{trivlist}\end{leftbar}}
+
+{%
+	\theoremheaderfont{\sffamily\bfseries}
+	\theorembodyfont{\sffamily}
+	\theoremprework{\begin{leftbar} }
+		\theorempostwork{\end{leftbar} }
+	\newtheorem*{repgraph}{Représentation graphique}
+}
+
+
+{%
+	\theoremheaderfont{\sffamily\bfseries}
+	\theorembodyfont{\sffamily}
+	\theoremprework{\begin{leftbar} }
+		\theorempostwork{\end{leftbar}\vspace{0.5cm} }
+	\newtheorem{theorem}{Théorème}
+}
+
+
+{%
+	\theoremheaderfont{\sffamily\bfseries}
+	\theorembodyfont{\sffamily}
+	\theoremprework{\begin{leftbar} }
+		\theorempostwork{\end{leftbar}\vspace{0.5cm} }
+	\newtheorem*{rappel}{Rappel}
+}
+
+{%
+	\theoremheaderfont{\sffamily\bfseries}
+	\theorembodyfont{\sffamily}
+	\theoremprework{\begin{leftbar} }
+		\theorempostwork{\end{leftbar}\vspace{0.5cm} }
+	\newtheorem*{enonce}{Enoncé}
+}
+
+
+{%
+\theoremheaderfont{\bfseries}
+\theoremseparator{:}
+\theoremprework{ }
+\theorempostwork{ \vspace{0.5cm}}
+\newtheorem{exerciceapp}{$\rightarrow$ Exercice d'application}
+}
+
+{%
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\sffamily}
+\theoremseparator{:}
+\theoremprework{ }
+\theorempostwork{\vspace{0.5cm} }
+\newtheorem{exercice}{\textnormal{\faEdit } $~$ Exercice}
+}
+
+{%
+\theoremheaderfont{\bfseries}
+\theoremseparator{:}
+\theoremprework{ }
+\theorempostwork{ }
+\newtheorem{exercicef}{$\rightarrow$ Exercice facultatif}
+}
+
+{%
+	\theoremheaderfont{\sffamily\bfseries}
+	\theorembodyfont{\sffamily}
+	\theoremprework{\begin{leftbar} }
+		\theorempostwork{\end{leftbar} \vspace{0.5cm}}
+	\newtheorem{regle}{Règle}
+}
+{%
+	\theoremheaderfont{\sffamily\bfseries}
+	\theorembodyfont{\sffamily}
+	\theoremprework{\begin{leftbar} }
+		\theorempostwork{\end{leftbar}\vspace{0.5cm} }
+	\newtheorem*{methode-non}{Méthode}
+}
+
+{%
+	\theoremheaderfont{\bfseries}
+	\theoremprework{ }
+	\theorempostwork{  }
+	\newtheorem*{correction}{$\hookrightarrow$ Corrigé}
+}
+{%
+	\theoremheaderfont{\bfseries}
+	\theoremprework{ }
+	\theorempostwork{  }
+	\newtheorem*{activitetice}{$\rightarrow$ Activité TICE}
+}
+
+{%
+	\theoremheaderfont{\bfseries}
+	\theoremprework{ }
+	\theorempostwork{ }
+	\newtheorem{probleme}{$\rightarrow$ Problème}
+}
+
+{%
+	\theoremheaderfont{\bfseries}
+	\theoremprework{ }
+	\theorempostwork{\skip}
+	\newtheorem{flash}{$\rightarrow$ Question flash}
+}
+
+
+\def\Oij{$\left(\text{O},~\vect{\imath},~\vect{\jmath}\right)$}
+\def\Oijk{$\left(\text{O},~\vect{\imath},~\vect{\jmath},~\vect{k}\right)$}
+\def\Ouv{$\left(\text{O},~\vect{u},~\vect{v}\right)$}
+
+
+
+% ********************
+% *** Misc tabular ***
+% ********************
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+
+\newcommand{\points}[2]{%
+\ifthenelse{#1=1}{%
+\ifthenelse{\equal{#2}{B}}{%
+Bonus: + }{}1 point)}{}%
+\ifthenelse{#1>1}{%
+\ifthenelse{\equal{#2}{B}}{%
+Bonus: + }{}#1 points}{}%
+}\par
+
+
+\newcommand{\zonereponse}[1]{%
+\begin{tcolorbox}[colback=white, title=,
+	height=#1,spread sidewards=-2cm]
+\end{tcolorbox}
+}
+
+
+\newcommand{\NomPrenom}{%
+\begin{center}
+	\begin{tabular}{cc}
+		
+	\begin{tcolorbox}[colback=white, title=,
+		width=8cm]
+		Nom:
+	  \end{tcolorbox}&
+	\begin{tcolorbox}[colback=white, title=,
+		width=8cm]
+		Prénom:
+	  \end{tcolorbox}\\
+	\end{tabular}
+\end{center}
+}
+
+
+\newcommand{\NomPrenomClasse}{%
+\begin{center}
+	\begin{tabular}{ccc}
+		
+	\begin{tcolorbox}[colback=white, title=,
+		width=6cm]
+		Nom:
+	  \end{tcolorbox}&
+	  \begin{tcolorbox}[colback=white, title=,
+		  width=6cm]
+		  Prénom:
+		\end{tcolorbox}&
+		\begin{tcolorbox}[colback=white, title=,
+			width=4cm]
+			Classe:
+		  \end{tcolorbox}\\
+	\end{tabular}
+\end{center}
+}
+
+
+\newcommand{\NomPrenomClasseProfesseur}{%
+\begin{center}
+	\begin{tabular}{ccc}
+		
+	\begin{tcolorbox}[colback=white, title=,
+		width=6cm]
+		Nom:
+	  \end{tcolorbox}&
+	  \begin{tcolorbox}[colback=white, title=,
+		  width=6cm]
+		  Prénom:
+		\end{tcolorbox}&
+		\begin{tcolorbox}[colback=white, title=,
+			width=4cm]
+			Classe:
+		  \end{tcolorbox}\\
+
+		  \multicolumn{3}{c}{\begin{tcolorbox}[colback=white, title=,
+			width=12cm]
+			Professeur de spécialité:
+		  \end{tcolorbox}} \\
+	
+	\end{tabular} 
+\end{center}
+}
+
+\newcommand{\MesConsignes}{%
+    \begin{center}%
+        \begin{minipage}{0.7\textwidth}%
+            \footnotesize\slshape%
+             Le soin et la r\'edaction seront pris en compte dans la
+             notation. \textbf{Faire des phrases claires et pr\'ecises}.
+             \textbf{Laisser de la place en haut de la copie pour une appr\'eciation ainsi qu'une marge suffisante pour les commentaires sur le c\^ot\'e gauche. Le barême est indicatif.}.
+        \end{minipage}%
+    \end{center}%
+}
+
+
+\newcommand{\MethodeQRCode}[3]{
+	\begin{tcolorbox}[colback=white, title=,sidebyside, lefthand width=2cm]
+
+		\qrcode[hyperlink,height=2cm]{#1}
+		\tcblower
+		\begin{center}
+			\Large
+			#2
+		\end{center}
+		\begin{center}
+			#3
+		\end{center}
+	\end{tcolorbox}
+
+
+}
+\newcommand{\MethodeQRCodeSmall}[3]{
+	\begin{tcolorbox}[colback=white, title=,sidebyside, lefthand width=1.5cm]
+
+		\qrcode[hyperlink,height=1.5cm]{#1}
+		\tcblower
+			#2 $\blacktriangleright$ #3
+	\end{tcolorbox}
+
+
+}
+\newcommand{\MethodeQRCodeVSmall}[3]{
+	\begin{tcolorbox}[colback=white, title=,sidebyside, lefthand width=1.5cm]
+
+		\qrcode[hyperlink,height=1.2cm]{#1}
+		\tcblower
+			#2 $\blacktriangleright$ #3
+	\end{tcolorbox}
+
+
+}
+\newcommand{\MethodeQRCodeMini}[2]{
+	\begin{tcolorbox}[width=5.5cm,colback=white, title=,sidebyside, lefthand width=1.5cm]
+		\qrcode[hyperlink,height=1.2cm]{#1}
+		\tcblower
+			#2
+	\end{tcolorbox}
+
+
+}
+
+
+
+\newcommand{\settcbcounter}[2]{%
+	\setcounter{tcb@cnt@#1}{#2}%
+}

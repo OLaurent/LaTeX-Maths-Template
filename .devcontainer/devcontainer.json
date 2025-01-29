@@ -4,10 +4,12 @@
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
-
-	"extensions": [
-		"James-Yu.latex-workshop"
-	],
+	"features": {
+		"ghcr.io/prulloac/devcontainer-features/latex:1": {
+			"scheme": "basic",
+			"mirror": "https://mirror.ctan.org/systems/texlive/tlnet/"
+		}
+	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
