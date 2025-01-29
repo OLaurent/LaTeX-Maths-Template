@@ -1,0 +1,23 @@
+# Fdb version 4
+["pdflatex"] 1738178686.64525 "/workspaces/LaTeX-Maths-Template/example/example.tex" "example.pdf" "example" 1738178686.72262 2
+  "/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty" 1734129479 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
+  "/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty" 1572645307 1057 525c2192b5febbd8c1f662c9468335bb ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls" 1730496337 20144 d7d3a15c7efd9458741458961c8a96e7 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty" 1717359999 5525 3792dcd5bc92158cfaf00cc591e557cf ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/base/size10.clo" 1730496337 8448 bd43e47d84d3704b7eabd59a92e43bf1 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty" 1717359999 2671 70891d50dac933918b827d326687c6e8 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/math-vh.sty" 1738171530.9452 12041 4795b5d04608006e7882a719a1683f61 ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/ntheorem/ntheorem.sty" 1346969955 43120 799f06af91d8fb275749981ca21a5146 ""
+  "/usr/local/texlive/2024/texmf-dist/web2c/texmf.cnf" 1727217670 42021 a58d36c7ede3d2fc9f93da62d691ddff ""
+  "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1738164209 1979062 7b2fc623b3e2bb53a38f015ab7f2e9a7 ""
+  "/usr/local/texlive/2024/texmf.cnf" 1738164204.62528 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
+  "/workspaces/LaTeX-Maths-Template/example/example.tex" 1738178685.94881 129 d79b59e9939d3db2fbf04eeead9a0671 ""
+  "example.aux" 1738178686.64081 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "example.tex" 1738178685.94881 129 d79b59e9939d3db2fbf04eeead9a0671 ""
+  "framed.sty" 0 -1 0 ""
+  (generated)
+  "example.aux"
+  "example.log"
+  "example.pdf"
+  (rewritten before read)

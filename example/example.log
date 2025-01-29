@@ -1,0 +1,114 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.29)  29 JAN 2025 19:24
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/workspaces/LaTeX-Maths-Template/example/example.tex
+(/workspaces/LaTeX-Maths-Template/example/example.tex
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-12-25>
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count196
+\c@section=\count197
+\c@subsection=\count198
+\c@subsubsection=\count199
+\c@paragraph=\count266
+\c@subparagraph=\count267
+\c@figure=\count268
+\c@table=\count269
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/math-vh.sty
+Package: math-vh 2023/06/21 version 1.0
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count270
+\Gm@cntv=\count271
+\c@Gm@tempcnt=\count272
+\Gm@bindingoffset=\dimen142
+\Gm@wd@mp=\dimen143
+\Gm@odd@mp=\dimen144
+\Gm@even@mp=\dimen145
+\Gm@layoutwidth=\dimen146
+\Gm@layoutheight=\dimen147
+\Gm@layouthoffset=\dimen148
+\Gm@layoutvoffset=\dimen149
+\Gm@dimlist=\toks18
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/ntheorem/ntheorem.sty
+Style `ntheorem', Version 1.33 <2011/08/15>
+Package: ntheorem 2011/08/15 1.33
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\theorem@style=\toks19
+\theorem@@style=\toks20
+\theorembodyfont=\toks21
+\theoremnumbering=\toks22
+\theorempreskipamount=\skip51
+\theorempostskipamount=\skip52
+\theoremframepreskipamount=\skip53
+\theoremframepostskipamount=\skip54
+\theoreminframepreskipamount=\skip55
+\theoreminframepostskipamount=\skip56
+\theorem@preskip=\toks23
+\theorem@postskip=\toks24
+\theorem@framepreskip=\toks25
+\theorem@framepostskip=\toks26
+\theorem@inframepreskip=\toks27
+\theorem@inframepostskip=\toks28
+\theoremindent=\dimen150
+\theorem@indent=\dimen151
+\theoremrightindent=\dimen152
+\theorem@rightindent=\dimen153
+\theoremheaderfont=\toks29
+\theoremseparator=\toks30
+\theoremprework=\toks31
+\theorempostwork=\toks32
+\theoremsymbol=\toks33
+\qedsymbol=\toks34
+\theoremkeyword=\toks35
+\qedsymbol=\toks36
+\thm@topsep=\skip57
+\thm@topsepadd=\skip58
+Package ntheorem Info: Option `thmmarks' loaded on input line 1175.
+\c@endNonectr=\count273
+\c@currNonectr=\count274
+\mysavskip=\skip59
+)
+
+! LaTeX Error: File `framed.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+/usr/local/texlive/2024/texmf-dist/tex/latex/math-vh.sty:10: Emergency stop.
+<read *> 
+         
+l.10 \RequirePackage
+                    {tcolorbox} % Environments^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 1207 strings out of 475135
+ 17826 string characters out of 5764736
+ 407426 words of memory out of 5000000
+ 24269 multiletter control sequences out of 15000+600000
+ 558837 words of font info for 36 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 72i,0n,79p,201b,36s stack positions out of 10000i,1000n,20000p,200000b,200000s
+/usr/local/texlive/2024/texmf-dist/tex/latex/math-vh.sty:10:  ==> Fatal error occurred, no output PDF file produced!
